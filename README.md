@@ -1,14 +1,22 @@
-# Autograding Example: Java
-This example project is written in Java, and tested with Gradle/JUnit.
+# 課題 6-1: 他のクラスのメソッド呼び出し
 
-### The assignment
-The tests are currently failing because of an output mismatch. Fixing the `System.out.println` in the main method will make the tests green.
+### 課題の説明
+2つの整数の積と商をもとめるプログラムを作成する。
+ただし、計算をおこなうためのCalculatorクラスを作成し、Prog61クラスのmain関数から
+そのメソッドを呼びだすこと。Calculatorクラスには以下のメソッドを実装すること。
+また、2つの整数は実行時引数から与える。
 
-### Setup command
-N/A
 
-### Run command
-`gradle test`
+| メソッド名  | 戻り値の型    | 引数リスト        | 処理内容                      |
+|--------|----------|--------------|---------------------------|
+| time   | int[]    | int a, int b | a x b の結果を返す              | 
+| divide | double[] | int a, int b | a ÷ b の結果を返す, bが0の場合は0を返す | 
 
-### Notes
-- The JDK is installed on GitHub Actions machines, so you're also able to directly invoke `javac`, `java`, or any other CLI command included in the JDK. 
+
+### 実行例 (実行時引数が2,7のとき)
+```
+積を計算します
+14
+商を計算します
+0.2857142857142857
+```
