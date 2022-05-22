@@ -5,7 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 import java.io.*;
 import static org.junit.jupiter.api.Assertions.*;
 /**
- * @version (20220510)
+ * @version (20220522)
+ *   suporting both println and print("\n") on Windows
  **/
 public class Prog61Test {
     InputStream originalIn;
@@ -41,7 +42,7 @@ public class Prog61Test {
         Prog61.main(new String[]{"72", "66"});
 
         // assertion
-        String prints[] = bos.toString().split(System.lineSeparator());
+        String prints[] = bos.toString().split("\r\n|\n");
         try {
             assertEquals("4752", prints[1],"1つ目の計算結果が期待した結果と一致しません!");
             assertEquals(1.0909, Double.parseDouble(prints[3]), 0.0001f,
@@ -66,7 +67,7 @@ public class Prog61Test {
         Prog61.main(new String[]{"7", "6"});
 
         // assertion
-        String prints[] = bos.toString().split(System.lineSeparator());
+        String prints[] = bos.toString().split("\r\n|\n");
         String msg;
         try {
             msg = "積を計算します";
@@ -75,7 +76,7 @@ public class Prog61Test {
             );
             msg  ="商を計算します";        
             assertEquals(msg, prints[2],
-                        "実行結果の1行目のprint文の出力が「" + msg +"」と違います!"
+                        "実行結果の3行目のprint文の出力が「" + msg +"」と違います!"
             );
         } catch (AssertionError err) {
             after();
