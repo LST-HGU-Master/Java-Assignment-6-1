@@ -13,9 +13,9 @@ import java.lang.reflect.Modifier;
 public class CalculatorTest {
 
     @Test
-    public void testTime()
+    public void testMultiply()
     {
-        final String TARGET_METHOD_NAME = "time";
+        final String TARGET_METHOD_NAME = "multiply";
         final Class<?>[] TARGET_METHOD_PARAMS = new Class<?>[]{int.class, int.class};
         
         try {
@@ -34,10 +34,10 @@ public class CalculatorTest {
             assertEquals(36,  actualResult, "積の計算結果が間違っています!");
 
             resultObj = method.invoke(null, -3, 5);
-            assertEquals(-15, (int)resultObj, "time(-3, 5) の積の計算結果が間違っています!（負の数の計算を確認してください）");
+            assertEquals(-15, (int)resultObj, "multiply(-3, 5) の積の計算結果が間違っています!（負の数の計算を確認してください）");
 
             resultObj = method.invoke(null, 0, 7);
-            assertEquals(0, (int)resultObj, "time(0, 7) の積の計算結果が間違っています!");
+            assertEquals(0, (int)resultObj, "multiply(0, 7) の積の計算結果が間違っています!");
 
         } catch (NoSuchMethodException e){
             fail("メソッド " + TARGET_METHOD_NAME + "(int, int) が見つかりません。メソッド名や引数の型を確認してください。");
